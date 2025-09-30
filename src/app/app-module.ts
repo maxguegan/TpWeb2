@@ -1,14 +1,21 @@
 import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+import { FormsModule } from '@angular/forms';
+
+
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { MyComponent } from './my-component/my-component';
 
 @NgModule({
   declarations: [
-    App
+    App,
+    MyComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule
   ],

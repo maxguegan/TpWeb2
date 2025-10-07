@@ -1,3 +1,14 @@
-<div><input [(ngModel)]="id"></div>
-<div><input readonly value="{{ id }}"></div>
-<select [(ngModel)]="selectedPokemon"><option *ngFor="let pokemon of pokemonList" value="{{pokemon.id}}"> {{pokemon.name}}</option></select>
+<div>
+    <input [(ngModel)]="id">
+</div>
+<div>
+    <input readonly value="{{ id }}">
+</div>
+<div>
+    <select [(ngModel)]="selectedPokemon">
+        <option *ngFor="let pokemon of (pokemonList | filterPokemonPipe:'name':id)" value="{{pokemon.id}}"> {{pokemon.name}}</option>
+    </select>
+</div>
+<div>
+    <button (click)="GO()">Go !</button>
+</div>

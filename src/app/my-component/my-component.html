@@ -5,8 +5,8 @@
     <input readonly value="{{ id }}">
 </div>
 <div>
-    <select [(ngModel)]="selectedPokemon">
-        <option *ngFor="let pokemon of (pokemonList | filterPokemonPipe:'name':id)" value="{{pokemon.id}}"> {{pokemon.name}}</option>
+    <select [(ngModel)]="selectedPokemonUrl">
+        <option *ngFor="let pokemon of (pokemonList | filterPokemonPipe:'name':id)" value="{{pokemon.url}}"> {{pokemon.name}}</option>
     </select>
 </div>
 <div>

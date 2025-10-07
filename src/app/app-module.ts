@@ -12,12 +12,14 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { MyComponent } from './my-component/my-component';
 import { FilterPokemonPipePipe } from './filter-pokemon--pipe-pipe';
+import { PokemonInfo } from './pokemon-info/pokemon-info';
 
 @NgModule({
   declarations: [
     App,
     MyComponent,
-    FilterPokemonPipePipe
+    FilterPokemonPipePipe,
+    PokemonInfo
   ],
   imports: [
     MatSlideToggleModule,

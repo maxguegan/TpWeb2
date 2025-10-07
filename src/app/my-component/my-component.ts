@@ -8,14 +8,21 @@ import { ApiQuery } from '../api-query';
   styleUrl: './my-component.css'
 })
 export class MyComponent {
+ 
   constructor(private query: ApiQuery){}
-  pokemonList = [new Pokemon("1","Pikachu"),new Pokemon("2","Racaillou"),new Pokemon("3","Meowth"),new Pokemon("4","Psycoduck"),new Pokemon("5","Onix")];
+   pokemonList:Pokemon[] = [];
   id: string = '';
-  selectedPokemon: number = 0;
-
+  selectedPokemonUrl: string = "";
+  ngOnInit(){
+   this.getPokemonList();
+  }
+  
+  getPokemonList():void{
+     this.query.getPokemonList().subscribe(_pokemonList => this.pokemonList = _pokemonList.results);
+  }
   GO(){
-    console.log(this.selectedPokemon);
-    this.query.getPokemonFromId("1");
+    console.log(this.selectedPokemonUrl);
+    this.query.getPokemonFromUrl(this.selectedPokemonUrl);
   }
 }
 

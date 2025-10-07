@@ -18,6 +18,7 @@ import { PokemonInfo } from './pokemon-info/pokemon-info';
   declarations: [
     App,
     MyComponent,
+    PokemonInfo,
     FilterPokemonPipePipe,
     PokemonInfo
   ],

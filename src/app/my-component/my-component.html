@@ -10,5 +10,8 @@
     </select>
 </div>
 <div>
-    <button (click)="GO()">Go !</button>
+    <button (click)="getPokemon()">Go !</button>
+</div>
+<div ngIf="truc">
+    <app-pokemon-info [selectedPokemon]="selectedPokemon"></app-pokemon-info>
 </div>

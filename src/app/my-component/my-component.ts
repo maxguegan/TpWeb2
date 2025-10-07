@@ -13,16 +13,18 @@ export class MyComponent {
    pokemonList:Pokemon[] = [];
   id: string = '';
   selectedPokemonUrl: string = "";
+  selectedPokemon?:Pokemon = new Pokemon();
   ngOnInit(){
    this.getPokemonList();
   }
   
   getPokemonList():void{
-     this.query.getPokemonList().subscribe(_pokemonList => this.pokemonList = _pokemonList.results);
+     this.query.getPokemonList()
+     .subscribe(_pokemonList => this.pokemonList = _pokemonList.results);
   }
-  GO(){
-    console.log(this.selectedPokemonUrl);
-    this.query.getPokemonFromUrl(this.selectedPokemonUrl);
+  getPokemon(){
+    this.query.getPokemonFromUrl(this.selectedPokemonUrl)
+    .subscribe(pokemon => this.selectedPokemon = pokemon);
   }
 }
 

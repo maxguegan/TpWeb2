@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Pokemon } from '../pokemon';
+import { CurPokemon } from '../cur-pokemon';
+import { ApiQuery } from '../api-query';
 
 @Component({
   selector: 'app-pokemon-info',
@@ -8,16 +10,14 @@ import { Pokemon } from '../pokemon';
   styleUrl: './pokemon-info.css'
 })
 export class PokemonInfo {
-  @Input() selectedPokemon?:Pokemon;
-  ngOnChange(){
-    this.render();
+  constructor(private query: ApiQuery, private curPokemon: CurPokemon){
+    this.curPokemon.getObservable().subscribe(value => this.query.getPokemonFromUrl(value).subscribe(value => this.selectedPokemon = value))
   }
-  render(){
-    if(this.selectedPokemon){
-      
-      return this.selectedPokemon.name
-    }else{
-      return "test1"
-    }
-  }
+
+  
+   
+    
+  
+  selectedPokemon?:Pokemon;
+  
 }

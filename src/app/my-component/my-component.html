@@ -4,7 +4,7 @@
 <div>
     <input readonly value="{{ id }}">
 </div>
-<div>
+<div *ngIf="pokemonList.length != 0">
     <select [(ngModel)]="selectedPokemonUrl">
         <option *ngFor="let pokemon of (pokemonList | filterPokemonPipe:'name':id)" value="{{pokemon.url}}"> {{pokemon.name}}</option>
     </select>
@@ -12,6 +12,6 @@
 <div>
     <button (click)="getPokemon()">Go !</button>
 </div>
-<div ngIf="truc">
-    <app-pokemon-info [selectedPokemon]="selectedPokemon"></app-pokemon-info>
+<div>
+    <app-pokemon-info></app-pokemon-info>
 </div>

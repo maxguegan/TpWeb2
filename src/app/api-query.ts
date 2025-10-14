@@ -22,4 +22,7 @@ export class ApiQuery {
   getPokemonFromUrl(url :string) {
     return this.http.get<Pokemon>(url);
   }
+  getPokemonFromId(id :string) {
+    return this.http.get<Pokemon>(id);
+  }
 }

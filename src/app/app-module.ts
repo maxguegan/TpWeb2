@@ -13,6 +13,7 @@ import { App } from './app';
 import { MyComponent } from './my-component/my-component';
 import { FilterPokemonPipePipe } from './filter-pokemon--pipe-pipe';
 import { PokemonInfo } from './pokemon-info/pokemon-info';
+import { CurPokemon } from './cur-pokemon';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { PokemonInfo } from './pokemon-info/pokemon-info';
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    importProvidersFrom(HttpClientModule)
+    importProvidersFrom([HttpClientModule,CurPokemon])
   ],
   bootstrap: [App]
 })

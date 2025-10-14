@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { ApiQuery } from '../api-query';
+import { CurPokemon } from '../cur-pokemon';
 @Component({
   selector: 'app-my-component',
   standalone: false,
@@ -9,11 +10,10 @@ import { ApiQuery } from '../api-query';
 })
 export class MyComponent {
  
-  constructor(private query: ApiQuery){}
+  constructor(private query: ApiQuery, private curPokemon: CurPokemon){}
    pokemonList:Pokemon[] = [];
   id: string = '';
   selectedPokemonUrl: string = "";
-  selectedPokemon?:Pokemon = new Pokemon();
   ngOnInit(){
    this.getPokemonList();
   }
@@ -23,8 +23,9 @@ export class MyComponent {
      .subscribe(_pokemonList => this.pokemonList = _pokemonList.results);
   }
   getPokemon(){
-    this.query.getPokemonFromUrl(this.selectedPokemonUrl)
-    .subscribe(pokemon => this.selectedPokemon = pokemon);
+    console.log(1 + this.selectedPokemonUrl)
+    if(this.selectedPokemonUrl == "")return;
+    this.curPokemon.setObservable(this.selectedPokemonUrl);
   }
 }
 

@@ -8,5 +8,5 @@ import { Component, signal } from '@angular/core';
 })
 export class App {
   
-  protected readonly title = signal('pokedemo');
+  protected readonly title = signal('Hello, angular-jest-demo');
 }
